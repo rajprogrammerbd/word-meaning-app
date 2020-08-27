@@ -8,8 +8,8 @@ const Joi = require('joi');
 // Getting All Data
 routes.get('/', async (req, res) => {
     if ( Object.keys(req.body).length === 0 ) {
-        await database.getFullData().then(r => res.send(r));
-    } else res.status(500).send("Bad Request");
+        await database.getFullData().then(r => res.send(r)).catch(err => res.send( { status: false, message: "Error Occurs" } ));
+    } else res.status(500).send( { status: false, message: "Error Occurs" } );
 });
 
 // Special Request to get Data While Typing.
