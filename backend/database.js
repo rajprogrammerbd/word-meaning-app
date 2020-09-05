@@ -100,6 +100,20 @@ function getFullData() {
     });
 }
 
+// Getting all data with pagination
+function gettingDataWithPagination( pageNumber, pageSize ) {
+    return new Promise(async (resolve, reject) => {
+        await Grammer.find().skip(( Number(pageNumber) - 1) * Number(pageSize)).limit( Number(pageSize)).then(arr => resolve(arr)).catch(err => reject({ status: false }));
+    });
+}
+
+// Count Total Data
+function totalData() {
+    return new Promise(async (resolve, reject) => {
+        await Grammer.find().countDocuments().then(num => resolve(num)).catch(err => reject({ status: false, message: "Failed to get total count of data" }));
+    });
+}
+
 // Getting Data While User Typing Something
 function userType(text) {
     if ( text ) {
@@ -141,5 +155,7 @@ module.exports = {
     getFullData,
     add_work,
     userType,
-    singleData
+    singleData,
+    gettingDataWithPagination,
+    totalData
 }

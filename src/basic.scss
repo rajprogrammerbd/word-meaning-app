@@ -1,0 +1,39 @@
+// Variables
+$basic-background-color: #fff;
+
+/* Basic Typography */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+
+    body {
+        height: 100%;
+        background-color: $basic-background-color;
+
+        .bold {
+            font-weight: bold;
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+
+
+            .container {
+                width: 88%;
+                max-width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
